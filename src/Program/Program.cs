@@ -10,7 +10,12 @@ public static class Program
     /// </summary>
     public static void Main()
     {
-        string testDate = "10/11/1997";
+        string testDate = "Cuadro";
+        try {
         Console.WriteLine($"{testDate} se convierte a {DateFormatter.ChangeFormat(testDate)}");
+        } catch(FormatException ex) 
+        {
+            Console.WriteLine("Error de formato de fecha"  + ex.Message); 
+        }
     }
 }

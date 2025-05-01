@@ -15,6 +15,11 @@ public class DateFormatter
     /// <returns>La fecha convertida al formato "yyyy-mm-dd".</returns>
     public static string ChangeFormat(string date)
     {
+        if (string.IsNullOrWhiteSpace(date) || date.Length != 10 || date[2] != '/' || date[5] != '/')
+        {
+            throw new FormatException("El formato de la fecha debe ser dd/mm/yyyy");
+        }
+
         return date.Substring(6) + "-" + date.Substring(3, 2) + "-" + date.Substring(0, 2);
     }
 }
